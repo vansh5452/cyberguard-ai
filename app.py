@@ -624,73 +624,132 @@ st.markdown("""
     }
 
     /* ========================================================
-       REPLACE SIDEBAR DOUBLE-ARROW RIGHT (>>) WITH 3 PARALLEL LINES (☰)
+       ELIMINATE KEYBOARD_DOUBLE_ARROW / DOUBLE_ARROW ICONS & TEXT
+       AND REPLACE WITH CLEAN HAMBURGER MENU (3 PARALLEL LINES)
        ======================================================== */
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapsedControl"],
+    /* 1. Reset font size and hide all text / ligatures in sidebar toggle buttons */
     [data-testid="collapsedControl"] button,
     [data-testid="stSidebarCollapsedControl"] button,
+    [data-testid="stSidebarCollapseButton"] button,
     button[aria-label*="sidebar" i],
     button[aria-label*="expand" i],
-    button[aria-label*="open" i] {
+    button[aria-label*="collapse" i],
+    button[aria-label*="close" i],
+    button[kind="header"] {
+        font-size: 0 !important;
+        line-height: 0 !important;
+        color: transparent !important;
+        text-indent: -9999px !important;
+        overflow: hidden !important;
+        position: relative !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
     }
 
-    /* Hide the default double-arrow SVG */
-    [data-testid="collapsedControl"] svg,
-    [data-testid="stSidebarCollapsedControl"] svg,
-    button[aria-label*="sidebar" i] svg,
-    button[aria-label*="expand" i] svg,
-    button[aria-label*="open" i] svg {
+    /* 2. Hide ANY child span, SVG, or Material Symbol ligature text (keyboard_double_arrow...) completely */
+    [data-testid="collapsedControl"] *,
+    [data-testid="stSidebarCollapsedControl"] *,
+    [data-testid="stSidebarCollapseButton"] *,
+    button[aria-label*="sidebar" i] *,
+    button[aria-label*="expand" i] *,
+    button[aria-label*="collapse" i] *,
+    button[aria-label*="close" i] *,
+    button[kind="header"] * {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
+        font-size: 0 !important;
         width: 0 !important;
         height: 0 !important;
+        color: transparent !important;
+        line-height: 0 !important;
     }
 
-    /* Render 3 crisp parallel lines (Hamburger Menu) */
-    [data-testid="collapsedControl"] button::before,
-    [data-testid="stSidebarCollapsedControl"] button::before,
-    [data-testid="collapsedControl"]::before,
-    button[aria-label*="Expand sidebar" i]::before {
-        content: "" !important;
-        display: inline-block !important;
-        width: 20px !important;
-        height: 2px !important;
-        background: #F8FAFC !important;
-        border-radius: 2px !important;
-        box-shadow: 0 -6px 0 0 #F8FAFC, 0 6px 0 0 #F8FAFC !important;
-        margin: auto !important;
-        transition: all 0.2s ease !important;
-    }
-
+    /* 3. Style the Collapsed Sidebar Button (Top-left when menu is closed) */
     [data-testid="collapsedControl"] button,
     [data-testid="stSidebarCollapsedControl"] button,
     button[aria-label*="Expand sidebar" i] {
-        background: rgba(30, 41, 59, 0.75) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        background: rgba(18, 29, 53, 0.85) !important;
+        border: 1px solid #263653 !important;
         border-radius: 10px !important;
-        width: 42px !important;
-        height: 42px !important;
-        backdrop-filter: blur(10px) !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
     }
 
     [data-testid="collapsedControl"] button:hover,
     [data-testid="stSidebarCollapsedControl"] button:hover,
     button[aria-label*="Expand sidebar" i]:hover {
-        background: rgba(37, 99, 235, 0.4) !important;
-        border-color: #3B82F6 !important;
+        background: rgba(35, 63, 119, 0.6) !important;
+        border-color: #4f8cff !important;
+    }
+
+    /* 4. Draw the 3 crisp parallel lines (Hamburger Menu) */
+    [data-testid="collapsedControl"] button::before,
+    [data-testid="stSidebarCollapsedControl"] button::before,
+    button[aria-label*="Expand sidebar" i]::before {
+        content: "" !important;
+        display: block !important;
+        width: 18px !important;
+        height: 2px !important;
+        background: #f4f7ff !important;
+        border-radius: 2px !important;
+        box-shadow: 0 -5px 0 0 #f4f7ff, 0 5px 0 0 #f4f7ff !important;
+        visibility: visible !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-indent: 0 !important;
+        transition: background 0.2s, box-shadow 0.2s !important;
     }
 
     [data-testid="collapsedControl"] button:hover::before,
     [data-testid="stSidebarCollapsedControl"] button:hover::before,
     button[aria-label*="Expand sidebar" i]:hover::before {
-        background: #60A5FA !important;
-        box-shadow: 0 -6px 0 0 #60A5FA, 0 6px 0 0 #60A5FA !important;
+        background: #4f8cff !important;
+        box-shadow: 0 -5px 0 0 #4f8cff, 0 5px 0 0 #4f8cff !important;
+    }
+
+    /* 5. Style the Collapse Button INSIDE the open sidebar (Replace keyboard_double_arrow_left with a clean ✕) */
+    [data-testid="stSidebarCollapseButton"] button,
+    button[aria-label*="Close sidebar" i] {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 8px !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        cursor: pointer !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button::before,
+    button[aria-label*="Close sidebar" i]::before {
+        content: "✕" !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 13px !important;
+        color: #91a2c4 !important;
+        font-weight: 700 !important;
+        font-family: Inter, sans-serif !important;
+        visibility: visible !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-indent: 0 !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button:hover::before,
+    button[aria-label*="Close sidebar" i]:hover::before {
+        color: #f4f7ff !important;
     }
 
     /* Starter Dashboard Theme Classes */
