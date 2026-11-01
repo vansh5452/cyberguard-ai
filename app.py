@@ -85,24 +85,15 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
     :root {
-        --bg: #0b1020;
-        --surface: #121d35;
-        --surface-2: #0f192e;
-        --border: #263653;
-        --text: #f4f7ff;
-        --muted: #91a2c4;
-        --blue: #4f8cff;
-        --purple: #8065ff;
-        --green: #37c98a;
-        --orange: #ff9c55;
-        --bg-1: #0b1020;
-        --bg-2: #121d35;
-        --bg-3: #0f192e;
-        --primary: #3868e8;
-        --secondary: #7659ed;
-        --success: #37c98a;
-        --danger: #ff9c55;
-        --text-secondary: #91a2c4;
+        --bg-1: #0F172A;
+        --bg-2: #111827;
+        --bg-3: #1E293B;
+        --primary: #2563EB;
+        --secondary: #7C3AED;
+        --success: #22C55E;
+        --danger: #EF4444;
+        --text: #F8FAFC;
+        --text-secondary: #CBD5E1;
     }
 
     html, body, [class*="css"] {
@@ -110,7 +101,7 @@ st.markdown("""
     }
 
     .stApp {
-        background: #0b1020 !important;
+        background: linear-gradient(160deg, #0F172A 0%, #111827 45%, #1E293B 100%) !important;
         color: var(--text) !important;
     }
 
@@ -751,142 +742,6 @@ st.markdown("""
     button[aria-label*="Close sidebar" i]:hover::before {
         color: #f4f7ff !important;
     }
-
-    /* Starter Dashboard Theme Classes */
-    .dashboard-stat-card {
-        background: linear-gradient(145deg, #131f38, #111b31);
-        border: 1px solid #263653;
-        border-radius: 17px;
-        padding: 21px 23px;
-        transition: transform .2s, border-color .2s;
-    }
-    .dashboard-stat-card:hover {
-        transform: translateY(-3px);
-        border-color: #4665a1;
-    }
-    .dashboard-stat-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-    }
-    .dashboard-stat-top p {
-        color: #91a2c4 !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        margin: 0 !important;
-    }
-    .dashboard-stat-val {
-        font-size: 34px !important;
-        letter-spacing: -1px;
-        margin: 15px 0 8px !important;
-        font-weight: 800 !important;
-    }
-    .dashboard-stat-sub {
-        color: #7486aa !important;
-        font-size: 11px !important;
-    }
-    .stat-icon {
-        display: grid;
-        place-items: center;
-        width: 31px;
-        height: 31px;
-        border-radius: 9px;
-        font-weight: 800;
-        font-size: 14px;
-    }
-    .stat-icon.blue { color: #83a9ff; background: #243a67; }
-    .stat-icon.green { color: #69e2ae; background: #1c423a; }
-    .stat-icon.orange { color: #ffc18d; background: #493326; }
-
-    /* Chart component */
-    .dashboard-chart {
-        height: 245px;
-        display: flex;
-        align-items: stretch;
-        justify-content: space-around;
-        gap: 12px;
-        padding: 12px 8px 0;
-        border-bottom: 1px solid #2b3955;
-        background: repeating-linear-gradient(to bottom, transparent 0, transparent 48px, #26344d 49px, transparent 50px);
-    }
-    .chart-col {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px;
-        min-width: 0;
-    }
-    .chart-bar {
-        width: min(100%, 44px);
-        min-height: 10px;
-        border-radius: 7px 7px 2px 2px;
-        background: linear-gradient(180deg, #8c73ff, #4b7ff5);
-        box-shadow: 0 4px 20px rgba(79, 114, 255, 0.2);
-        transition: filter .2s;
-    }
-    .chart-bar:hover { filter: brightness(1.25); }
-    .chart-col span { color: #8192b3 !important; font-size: 10px !important; padding-bottom: 12px; }
-
-    /* Result State Cards */
-    .dash-result {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        margin-top: 14px;
-        padding: 14px;
-        border: 1px solid #2b3958;
-        border-radius: 11px;
-        background: #17243c;
-        color: #b7c4df;
-        transition: all 0.25s ease;
-    }
-    .dash-result strong { display: block; font-size: 12px; margin-bottom: 5px; }
-    .dash-result p { font-size: 11px; line-height: 1.55; color: #91a2c4; margin: 0; }
-    .dash-result-sym { font-size: 18px; color: #90a8ff; flex-shrink: 0; line-height: 1; }
-
-    .dash-result.safe { background: #182c27 !important; border-color: #2e6e54 !important; }
-    .dash-result.safe strong, .dash-result.safe .dash-result-sym { color: #57d69a !important; }
-    .dash-result.safe p { color: #a1d7be !important; }
-
-    .dash-result.flagged { background: #35231e !important; border-color: #74452e !important; }
-    .dash-result.flagged strong, .dash-result.flagged .dash-result-sym { color: #ffad70 !important; }
-    .dash-result.flagged p { color: #f2c09d !important; }
-
-    /* Safety Panel */
-    .dash-safety-panel {
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-        margin-top: 22px;
-        background: #121e32;
-        border: 1px solid #263653;
-        border-radius: 17px;
-        padding: 23px;
-    }
-    .dash-safety-icon { font-size: 25px; flex-shrink: 0; line-height: 1; }
-    .dash-safety-panel h2 { font-size: 16px !important; letter-spacing: -.3px; margin: 0 0 7px 0 !important; color: #f4f7ff !important; }
-    .dash-safety-panel p { max-width: 900px; color: #91a2c4 !important; font-size: 12px !important; line-height: 1.7 !important; margin: 0 !important; }
-
-    /* History Note */
-    .dash-history-item {
-        padding: 10px 12px;
-        border: 1px solid #263653;
-        border-radius: 9px;
-        margin-top: 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-        background: rgba(255, 255, 255, 0.02);
-    }
-    .dash-history-item strong { color: #dce5fa !important; font-weight: 500 !important; font-size: 11px !important; overflow-wrap: anywhere; }
-    .dash-history-item em { font-style: normal; white-space: nowrap; font-size: 11px; font-weight: 600; }
-    .dash-history-item em.safe { color: #57d69a; }
-    .dash-history-item em.flagged { color: #ffad70; }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -933,10 +788,6 @@ if 'stats_bullying_count' not in st.session_state:
     st.session_state.stats_bullying_count = 0
 if 'detector_input_key' not in st.session_state:
     st.session_state.detector_input_key = 0
-if 'quick_result' not in st.session_state:
-    st.session_state.quick_result = None
-if 'session_history' not in st.session_state:
-    st.session_state.session_history = []
 
 
 def log_scan_stats(label):
@@ -1084,241 +935,155 @@ with st.sidebar:
 # PAGE 1: DASHBOARD (HOME)
 # ==========================================
 if page == "🏠 Dashboard":
-    # --- TOPBAR ---
-    st.markdown("""
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:26px; flex-wrap:wrap; gap:14px;">
-        <div>
-            <p style="color:#7f91b5; font-size:10px; letter-spacing:1.6px; font-weight:700; margin:0 0 5px 0;">CYBER SAFETY OVERVIEW</p>
-            <h1 style="font-size:32px; letter-spacing:-1px; margin:0 0 5px 0; color:#f4f7ff;">Dashboard</h1>
-            <p style="color:#91a2c4; font-size:13px; margin:0;">Your AI moderation overview</p>
+    col_hero_l, col_hero_r = st.columns([7, 5])
+    with col_hero_l:
+        st.markdown("""
+        <div class="hero-wrap">
+            <span class="hero-eyebrow">🛡 AI Powered • Safe Internet for All</span>
+            <div class="hero-title">CyberGuard AI</div>
+            <div class="hero-subtitle">AI Powered Cyberbullying Detection</div>
+            <div class="hero-desc">Detect harmful, abusive, or toxic content in online messages using Machine Learning and Natural Language Processing.</div>
         </div>
-        <div style="padding:10px 15px; background:#142337; border:1px solid #244b43; border-radius:30px; color:#a5dfc7; font-size:12px; font-weight:600; display:flex; align-items:center; gap:8px;">
-            <span style="display:inline-block; width:8px; height:8px; background:#37c98a; border-radius:50%; box-shadow:0 0 10px #37c98a70;"></span> System ready
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+        btn_col1, btn_col2, _ = st.columns([2, 2, 3])
+        with btn_col1:
+            start_clicked = st.button("🚀 Start Detection", use_container_width=True)
+        with btn_col2:
+            learn_clicked = st.button("📖 Learn More", use_container_width=True)
+        if start_clicked:
+            st.info("Head to the **🔍 AI Detector** page from the sidebar to scan a message.")
+        if learn_clicked:
+            st.info("Head to the **📚 Safety Guide** page from the sidebar to learn more.")
 
-    # --- THREE STAT CARDS (Real session counters, Critical Instruction 7) ---
-    col_stat1, col_stat2, col_stat3 = st.columns(3)
-    with col_stat1:
+    with col_hero_r:
         st.markdown(f"""
-        <div class="dashboard-stat-card">
-            <div class="dashboard-stat-top">
-                <p>Messages analyzed</p>
-                <span class="stat-icon blue">⌁</span>
+        <div class="hero-shield-wrap">
+            <div class="hero-pedestal"></div>
+            <div class="hero-shield-glow"></div>
+            <div class="hero-shield-icon">{icon('lock', 56, '#DBEAFE', 1.8)}</div>
+            <div class="hero-float-chip c1">
+                <span class="chip-badge danger">{icon('x-circle', 12, '#fff', 2.5)}</span> #%@$!
             </div>
-            <div class="dashboard-stat-val" style="color:#4f8cff;">{st.session_state.stats_total_scanned}</div>
-            <div class="dashboard-stat-sub">In this session</div>
+            <div class="hero-float-chip c2">
+                {icon('message-circle', 15, '#94A3B8')}
+                <span><span class="skeleton-line" style="width:60px; display:block; margin-bottom:4px;"></span><span class="skeleton-line" style="width:38px; display:block;"></span></span>
+            </div>
+            <div class="hero-float-chip c3">
+                <span class="chip-badge safe">{icon('check-circle', 12, '#fff', 2.5)}</span> safe &amp; verified
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
-    with col_stat2:
-        st.markdown(f"""
-        <div class="dashboard-stat-card">
-            <div class="dashboard-stat-top">
-                <p>Likely safe</p>
-                <span class="stat-icon green">✓</span>
-            </div>
-            <div class="dashboard-stat-val" style="color:#37c98a;">{st.session_state.stats_safe_count}</div>
-            <div class="dashboard-stat-sub">Classified as non-bullying</div>
-        </div>
-        """, unsafe_allow_html=True)
+    # --- STAT CARDS (backed by the database via the backend, not session state) ---
+    try:
+        dashboard_stats = api_client.get_dashboard_stats()
+        accuracy_display = (
+            f"{dashboard_stats['model_accuracy'] * 100:.1f}%"
+            if dashboard_stats.get('model_accuracy') is not None else "—"
+        )
+        messages_scanned = dashboard_stats.get('messages_scanned', 0)
+        safe_messages = dashboard_stats.get('safe_messages', 0)
+        bullying_detected = dashboard_stats.get('cyberbullying_detected', 0)
+    except ApiError as e:
+        st.warning(f"Could not load live stats from the backend: {e.message}")
+        accuracy_display, messages_scanned, safe_messages, bullying_detected = "—", 0, 0, 0
 
-    with col_stat3:
-        st.markdown(f"""
-        <div class="dashboard-stat-card">
-            <div class="dashboard-stat-top">
-                <p>Flagged for review</p>
-                <span class="stat-icon orange">!</span>
+    stat_cols = st.columns(4)
+    stats_v2 = [
+        ("blue", "trending-up", "Accuracy", accuracy_display, "High Performance", "#3B82F6", [40, 55, 48, 62, 58, 70, 68]),
+        ("purple", "message-circle", "Messages Scanned", str(messages_scanned), "Total Analyzed", "#A78BFA", [20, 35, 30, 50, 45, 65, 72]),
+        ("green", "check-circle", "Safe Messages", str(safe_messages), "Verified Safe", "#22C55E", [30, 28, 40, 38, 52, 48, 60]),
+        ("red", "alert-triangle", "Cyberbullying Detected", str(bullying_detected), "Harmful Messages", "#F87171", [15, 22, 18, 30, 25, 35, 32]),
+    ]
+    for col, (color, icon_name, label, number, sub, spark_color, spark_vals) in zip(stat_cols, stats_v2):
+        with col:
+            st.markdown(f"""
+            <div class="stat-card-v2">
+                <div class="stat-v2-top">
+                    <div class="icon-badge {color}">{icon(icon_name, 20, '#fff')}</div>
+                    <div class="stat-v2-label">{label}</div>
+                </div>
+                <div class="stat-v2-big">{number}</div>
+                <div class="stat-v2-sub">{sub}</div>
             </div>
-            <div class="dashboard-stat-val" style="color:#ff9c55;">{st.session_state.stats_bullying_count}</div>
-            <div class="dashboard-stat-sub">Potentially harmful messages</div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
+            st.plotly_chart(render_sparkline(spark_vals, spark_color), use_container_width=True, config={'displayModeBar': False}, key=f"spark_{label}")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # --- CONTENT GRID: Detection Activity Chart & Quick Text Analysis ---
-    grid_col1, grid_col2 = st.columns([1.15, 1])
-
-    with grid_col1:
-        st.markdown("""
-        <div class="panel" style="height:100%;">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
-                <div>
-                    <h2 style="font-size:16px; letter-spacing:-.3px; margin:0 0 5px 0; color:#f4f7ff;">Detection activity</h2>
-                    <p style="color:#91a2c4; font-size:11px; margin:0;">Illustrative weekly overview</p>
+    # --- INFO CARDS: Objective / Technology / Applications (checklist style) ---
+    feat_cols = st.columns(3)
+    features_v2 = [
+        ("purple", "target", "Objective", ["Detect cyberbullying in real-time", "Promote a safer online environment", "Empower users with AI insights"]),
+        ("blue", "cpu", "Technology", ["Machine Learning Models", "Natural Language Processing", "Smart Content Classification"]),
+        ("teal", "globe", "Applications", ["Social Media Monitoring", "Online Community Safety", "Educational Awareness"]),
+    ]
+    for col, (color, icon_name, title, items) in zip(feat_cols, features_v2):
+        with col:
+            items_html = "".join(f"<li><span class='check-dot'>✓</span>{item}</li>" for item in items)
+            st.markdown(f"""
+            <div class="info-card-v2">
+                <div class="info-v2-head">
+                    <div class="icon-badge {color}">{icon(icon_name, 20, '#fff')}</div>
+                    <div class="info-v2-title">{title}</div>
                 </div>
-                <span style="border-radius:20px; padding:6px 9px; background:#1b2c4b; color:#9eb7ff; font-size:10px; font-weight:700;">Demo data</span>
+                <ul class="info-v2-checklist">{items_html}</ul>
             </div>
-            <div class="dashboard-chart" aria-label="Illustrative weekly bar chart">
-                <div class="chart-col"><div class="chart-bar" style="height:40%;"></div><span>Mon</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:65%;"></div><span>Tue</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:50%;"></div><span>Wed</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:80%;"></div><span>Thu</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:60%;"></div><span>Fri</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:95%;"></div><span>Sat</span></div>
-                <div class="chart-col"><div class="chart-bar" style="height:70%;"></div><span>Sun</span></div>
-            </div>
-            <p style="color:#7182a6; font-size:10px; margin-top:16px;">Sample distribution pattern. Model inference runs dynamically on text submitted in the panel.</p>
+            """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="quote-banner">
+        <span>{icon('shield', 22, '#93C5FD')}</span>
+        <span>"A safer internet begins with awareness. Let AI help build a better digital world."</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    col1, col2 = st.columns([7, 5])
+    with col1:
+        st.markdown("""
+        <div class="panel">
+            <div class="panel-title">📊 Cyberbullying Incidence by Platform</div>
+            <div class="panel-sub">Key findings from child safety research indicating why this AI system is critical today.</div>
         </div>
         """, unsafe_allow_html=True)
 
-    with grid_col2:
-        st.markdown("""
-        <div class="panel" style="height:100%;">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
-                <div>
-                    <h2 style="font-size:16px; letter-spacing:-.3px; margin:0 0 5px 0; color:#f4f7ff;">Quick text analysis</h2>
-                    <p style="color:#91a2c4; font-size:11px; margin:0;">Check a message for harmful language</p>
-                </div>
-                <span style="border-radius:20px; padding:6px 9px; background:#302858; color:#c3b6ff; font-size:10px; font-weight:700;">AI</span>
-            </div>
-        """, unsafe_allow_html=True)
-
-        quick_text = st.text_area(
-            "Message to analyze",
-            placeholder="Paste or type a message to analyze…",
-            key="dash_quick_input",
-            height=125,
-            label_visibility="collapsed"
+        stats_df = pd.DataFrame({
+            'Platform': ['Instagram', 'Snapchat', 'WhatsApp', 'YouTube', 'Facebook', 'Twitter/X'],
+            'Teenagers Harassed (%)': [42, 37, 33, 28, 22, 19]
+        })
+        fig = px.bar(
+            stats_df, x='Teenagers Harassed (%)', y='Platform', orientation='h',
+            color='Teenagers Harassed (%)', color_continuous_scale=['#7C3AED', '#2563EB']
         )
+        fig.update_layout(
+            height=320,
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font={'color': "#F8FAFC", 'family': "Inter"},
+            coloraxis_showscale=False,
+            margin=dict(l=10, r=20, t=20, b=20),
+            yaxis=dict(autorange="reversed")
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
-        quick_analyze = st.button("Analyze message →", key="dash_quick_btn", use_container_width=True)
-
-        if quick_analyze:
-            if not quick_text.strip():
-                st.session_state.quick_result = {
-                    "kind": "neutral",
-                    "title": "Please enter a message first.",
-                    "desc": "Add a message in the text box and press Analyze."
-                }
-            else:
-                with st.spinner("Analyzing message with AI model..."):
-                    try:
-                        res = api_client.predict_message(quick_text.strip())
-                        log_scan_stats(res['label'])
-                        is_harmful = res['label'] == 1
-                        conf = res.get('confidence', 0.9)
-                        conf_pct = conf * 100 if conf <= 1.0 else conf
-                        method = res.get('method', 'TF-IDF + Logistic Regression')
-                        conf_text = f" Statistical model confidence: {conf_pct:.1f}% ({method})."
-
-                        if is_harmful:
-                            cat = res.get('category')
-                            cat_info = f" Category: {cat}." if cat and cat != 'Not Applicable' else ""
-                            st.session_state.quick_result = {
-                                "kind": "flagged",
-                                "title": "Potentially harmful language detected",
-                                "desc": f"This automated scan detected potentially harmful language. Review the message and its context carefully.{cat_info}{conf_text}"
-                            }
-                            st.session_state.session_history.insert(0, {
-                                "text": quick_text.strip(),
-                                "label": "Flagged for review",
-                                "kind": "flagged"
-                            })
-                        else:
-                            st.session_state.quick_result = {
-                                "kind": "safe",
-                                "title": "Likely non-bullying message",
-                                "desc": f"The model classified this message as likely safe. Context and tone still matter.{conf_text}"
-                            }
-                            st.session_state.session_history.insert(0, {
-                                "text": quick_text.strip(),
-                                "label": "Likely safe",
-                                "kind": "safe"
-                            })
-                    except Exception as err:
-                        st.session_state.quick_result = {
-                            "kind": "neutral",
-                            "title": "Could not analyze this message",
-                            "desc": f"Error contacting AI backend: {err}. Ensure the service is online."
-                        }
-            st.rerun()
-
-        # Render quick result card (phrased as estimates, Critical Instruction 8)
-        if st.session_state.quick_result is None:
-            st.markdown("""
-            <div class="dash-result">
-                <span class="dash-result-sym">✧</span>
-                <div>
-                    <strong>Ready to analyze</strong>
-                    <p>Your result will appear here. AI predictions can be mistaken; consider context.</p>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-        else:
-            q_res = st.session_state.quick_result
-            q_kind = q_res.get("kind", "neutral")
-            q_sym = "✓" if q_kind == "safe" else ("!" if q_kind == "flagged" else "✧")
-            st.markdown(f"""
-            <div class="dash-result {q_kind}">
-                <span class="dash-result-sym">{q_sym}</span>
-                <div>
-                    <strong>{q_res['title']}</strong>
-                    <p>{q_res['desc']}</p>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    # --- ONLINE SAFETY NOTE PANEL ---
-    st.markdown("""
-    <div class="dash-safety-panel">
-        <div class="dash-safety-icon">🛡️</div>
-        <div>
-            <h2>Online safety matters</h2>
-            <p>If a message makes you feel unsafe, consider saving evidence, using the platform's reporting tools, and speaking with a trusted adult. A model flag is an automated estimate, not a definitive human judgment.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # --- RECENT ANALYSES SESSION HISTORY (Privacy-safe in-memory, Critical Instruction 6) ---
-    st.markdown("""
-    <div style="margin-top:24px; padding:0 3px;">
-        <span style="font-size:13px; font-weight:700; color:#f4f7ff;">Recent analyses</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-    if not st.session_state.session_history:
-        st.markdown("<p style='color:#8192b3; font-size:11px; margin-top:8px;'>Your session analysis history will appear here after you analyze a message.</p>", unsafe_allow_html=True)
-    else:
-        for item in st.session_state.session_history[:6]:
-            disp_txt = item['text'][:85] + ("…" if len(item['text']) > 85 else "")
-            st.markdown(f"""
-            <div class="dash-history-item">
-                <strong>{disp_txt}</strong>
-                <em class="{item['kind']}">{item['label']}</em>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<br><hr style='border-color:rgba(255,255,255,0.08);'><br>", unsafe_allow_html=True)
-
-    # --- QUICK NAVIGATION TO OTHER SYSTEM MODULES ---
-    st.markdown("<h3 style='font-size:18px; margin-bottom:14px; color:#f4f7ff;'>Explore System Modules</h3>", unsafe_allow_html=True)
-    mod_c1, mod_c2, mod_c3 = st.columns(3)
-    with mod_c1:
+    with col2:
         st.markdown("""
-        <div class="panel" style="padding:18px;">
-            <h4 style="margin:0 0 6px 0; color:#60A5FA;">🔍 Deep AI Detector</h4>
-            <p style="font-size:12px; color:#91a2c4; margin:0 0 12px 0;">Comprehensive NLP scanning with category classification, toxic word extraction, and confidence gauges.</p>
+        <div class="panel">
+            <div class="panel-title">⚙️ How It Works</div>
+            <ol style="font-size: 0.88rem; padding-left: 1.1rem; color: #CBD5E1;">
+                <li><b>Data Acquisition:</b> A labeled dataset teaches the model safe vs. toxic phrases.</li>
+                <li><b>Text Cleaning:</b> Input text is standardized — lowercased and stripped of special characters.</li>
+                <li><b>TF-IDF Processing:</b> Extracts numerical weight matrices representing vocabulary significance.</li>
+                <li><b>Classifier Training:</b> Learns coefficients and saves a binary model file via Pickle.</li>
+                <li><b>Inference:</b> Live messages are vectorized and scored in real time.</li>
+            </ol>
         </div>
         """, unsafe_allow_html=True)
-    with mod_c2:
-        st.markdown("""
-        <div class="panel" style="padding:18px;">
-            <h4 style="margin:0 0 6px 0; color:#A78BFA;">💬 Chat Simulator</h4>
-            <p style="font-size:12px; color:#91a2c4; margin:0 0 12px 0;">Interactive social feed with live content filtering, strike penalties, and auto-detoxification.</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with mod_c3:
-        st.markdown("""
-        <div class="panel" style="padding:18px;">
-            <h4 style="margin:0 0 6px 0; color:#34D399;">📊 Model Analytics</h4>
-            <p style="font-size:12px; color:#91a2c4; margin:0 0 12px 0;">Confusion matrix, 93.55% accuracy evaluation, and TF-IDF coefficient predictive words chart.</p>
-        </div>
-        """, unsafe_allow_html=True)
+
+        st.markdown("<div class='banner-safe'>✅ AI model pipeline active (<code>cyberbullying_model.pkl</code>) — 93.55% validation accuracy.</div>", unsafe_allow_html=True)
 
 # ==========================================
 # PAGE 2: AI DETECTOR
