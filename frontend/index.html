@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CyberGuard AI - AI-powered Cyberbullying and Harmful Content Detection Dashboard.">
+  <title>CyberGuard AI | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar" aria-label="Sidebar Navigation">
+      <div class="logo"><span class="logo-mark">✦</span> CyberGuard <span class="accent">AI</span></div>
+      <p class="menu-title">MAIN MENU</p>
+      <nav aria-label="Main navigation">
+        <a href="#dashboard" class="nav-item active" id="navDashboard">▦ &nbsp; Dashboard</a>
+        <a href="#analyze" class="nav-item" id="navAnalyze">⌕ &nbsp; Analyze Text</a>
+        <a href="#history" class="nav-item" id="navHistory">◷ &nbsp; History</a>
+        <a href="#safety" class="nav-item" id="navSafety">♧ &nbsp; Safety Hub</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="shield">🛡️</div>
+        <p>Stay safe online</p>
+        <small>AI-powered awareness</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CYBER SAFETY OVERVIEW</p>
+          <h1>Dashboard</h1>
+          <p class="subtitle">Your AI moderation overview</p>
+        </div>
+        <div class="system-status" id="systemStatusBadge" role="status">
+          <span class="status-dot"></span> <span id="systemStatusText">Connecting...</span>
+        </div>
+      </header>
+
+      <!-- Three Metric Cards (Real session-only counters) -->
+      <section class="stats" aria-label="Overview statistics">
+        <article class="stat-card">
+          <div class="stat-top">
+            <p>Messages analyzed</p>
+            <span class="stat-icon blue" aria-hidden="true">⌁</span>
+          </div>
+          <h2 id="totalMessages">0</h2>
+          <small>In this session</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top">
+            <p>Likely safe</p>
+            <span class="stat-icon green" aria-hidden="true">✓</span>
+          </div>
+          <h2 id="safeMessages">0</h2>
+          <small>Classified as non-bullying</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top">
+            <p>Flagged for review</p>
+            <span class="stat-icon orange" aria-hidden="true">!</span>
+          </div>
+          <h2 id="flaggedMessages">0</h2>
+          <small>Potentially harmful messages</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <!-- Detection Activity Chart (Clearly marked as demo/illustrative) -->
+        <article class="panel activity-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Detection activity</h2>
+              <p>Illustrative weekly overview</p>
+            </div>
+            <span class="pill">Demo data</span>
+          </div>
+          <div class="chart" aria-label="Illustrative weekly bar chart">
+            <div class="chart-column"><div class="bar" style="height:40%"></div><span>Mon</span></div>
+            <div class="chart-column"><div class="bar" style="height:65%"></div><span>Tue</span></div>
+            <div class="chart-column"><div class="bar" style="height:50%"></div><span>Wed</span></div>
+            <div class="chart-column"><div class="bar" style="height:80%"></div><span>Thu</span></div>
+            <div class="chart-column"><div class="bar" style="height:60%"></div><span>Fri</span></div>
+            <div class="chart-column"><div class="bar" style="height:95%"></div><span>Sat</span></div>
+            <div class="chart-column"><div class="bar" style="height:70%"></div><span>Sun</span></div>
+          </div>
+          <p class="chart-footnote">Sample distribution pattern. Model inference runs dynamically on text submitted below.</p>
+        </article>
+
+        <!-- Quick Text Analysis Panel -->
+        <article class="panel analysis-panel" id="analyze">
+          <div class="panel-heading">
+            <div>
+              <h2>Quick text analysis</h2>
+              <p>Check a message for harmful language</p>
+            </div>
+            <span class="ai-chip">AI</span>
+          </div>
+          <label class="sr-only" for="messageInput">Message to analyze</label>
+          <textarea id="messageInput" placeholder="Paste or type a message to analyze…" aria-label="Message to analyze"></textarea>
+          <button id="analyzeButton" type="button" aria-label="Analyze message">Analyze message <span>→</span></button>
+          
+          <!-- Result Card (Phased states: safe / flagged / neutral) -->
+          <div id="result" class="result" role="status" aria-live="polite">
+            <span class="result-symbol" aria-hidden="true">✧</span>
+            <div>
+              <strong>Ready to analyze</strong>
+              <p>Your result will appear here. AI predictions can be mistaken; consider context.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Online Safety Notice -->
+      <section class="panel safety-panel" id="safety">
+        <div class="safety-icon" aria-hidden="true">🛡️</div>
+        <div>
+          <h2>Online safety matters</h2>
+          <p>If a message makes you feel unsafe, consider saving evidence, using the platform's reporting tools, and speaking with a trusted adult. A model flag is an automated estimate, not a definitive human judgment.</p>
+        </div>
+      </section>
+
+      <!-- Session History (Strictly in-memory, privacy-friendly) -->
+      <section id="history" class="history-note">
+        <span>Recent analyses</span>
+        <p id="historyEmpty">Your session analysis history will appear here after you analyze a message.</p>
+        <div id="historyList" aria-label="Recent analysis results"></div>
+      </section>
+
+      <footer>CyberGuard AI · Class 12 AI Project · Prototype Dashboard</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

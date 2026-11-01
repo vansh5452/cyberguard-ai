@@ -7,9 +7,11 @@ Existing ML Model (TF-IDF + Logistic Regression) -> Database / API Response
 import time
 from contextlib import asynccontextmanager
 
+from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.api.v1 import analytics, auth, health, model, predictions, safety, simulator
@@ -118,6 +120,18 @@ app.include_router(simulator.router, prefix=settings.API_V1_PREFIX)
 app.include_router(safety.router, prefix=settings.API_V1_PREFIX)
 
 
+# Mount static frontend dashboard if available
+frontend_dir = Path(__file__).resolve().parent.parent.parent / "frontend"
+if frontend_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="frontend_static")
+
+    @app.get("/dashboard", include_in_schema=False)
+    def dashboard():
+        return FileResponse(str(frontend_dir / "index.html"))
+
+
 @app.get("/", tags=["Health"], summary="Root")
 def root():
+    if frontend_dir.exists() and (frontend_dir / "index.html").exists():
+        return FileResponse(str(frontend_dir / "index.html"))
     return {"service": settings.APP_NAME, "docs": "/docs", "health": f"{settings.API_V1_PREFIX}/health"}
